@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="307dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:padding="7dp"
+        android:background="@drawable/border"
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_centerHorizontal="true">
+        <Button
+            android:id="@+id/pop_next_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:layout_marginRight="80dp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/pop_next_display"
+            android:textColor="#000000"
+            android:layout_below="@id/textView">
+        </Button>
+        <Button
+            android:id="@+id/pop_next_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_below="@id/textView">
+        </Button>
+    </LinearLayout>
+</RelativeLayout>

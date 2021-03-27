@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.luseen.spacenavigation.SpaceNavigationView
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        app:active_item_color="#ffffff"
+        app:centre_button_color="#ffffff"
+        app:inactive_item_color="#ffffff"
+        app:space_background_color="@color/colorPrimary"
+        app:centre_button_icon="@drawable/home_icon"
+        app:space_item_icon_size="25dp"
+        app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
+        app:space_item_text_size="@dimen/space_item_text_default_size" />
+
+    <TextView
+        android:id="@+id/balance_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Balance:"
+        android:layout_margin="30dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#000000">
+    </TextView>
+
+    <TextView
+        android:id="@+id/balance_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/balance_text"
+        android:text="Amount"
+        android:layout_margin="30dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#000000">
+    </TextView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mine Coins!"
+        android:textSize="40sp"
+        android:layout_centerInParent="true">
+
+    </Button>
+
+
+</RelativeLayout>
