@@ -5,3 +5,7 @@ Team Memebers:
 2. Abhishek Chaturvedi
 3. Sanjeev Bhardwaj
 4. Devansh Doshi
+
+Web App - Quriosity
+
+Android App - Quriosity lite

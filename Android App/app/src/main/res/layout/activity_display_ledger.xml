@@ -6,23 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".Display_Ledger">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/_1">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BLOCKS"
+        android:id="@+id/tv"
+        android:layout_marginBottom="10dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
         android:textSize="30sp">
 
     </TextView>
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/mine_the_coin"
+        android:layout_width="150dp"
+        android:layout_height="90dp"
+        android:layout_toEndOf="@id/tv"
+        android:scaleType="fitCenter"
+        android:layout_alignParentTop="true"
+        app:lottie_fileName="block_stacking.json"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/genesisblock"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/border2"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/_1"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+
     <ListView
+        android:id="@+id/listv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
-        android:layout_marginTop="65dp"
-        android:background="@drawable/border2"
+        android:layout_marginBottom="60dp"
+        android:layout_below="@id/genesisblock"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 

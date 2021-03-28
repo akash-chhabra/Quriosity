@@ -7,42 +7,7 @@
     tools:context=".Send_Coins">
 
     <RelativeLayout
-        android:id="@+id/_1"
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content">
-    <RelativeLayout
-        android:id="@+id/FROM"
-        android:layout_marginTop="60dp"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_centerInParent="true">
-
-        <TextView
-            android:id="@+id/frm"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="From:     "
-            android:layout_marginRight="20dp"
-            android:textSize="20sp">
-        </TextView>
-        <Spinner
-            android:layout_toEndOf="@id/frm"
-            android:layout_width="200dp"
-            android:layout_height="30dp"
-            android:background="@drawable/border2"
-            android:paddingLeft="5dp">
-
-        </Spinner>
-
-    </RelativeLayout>
-
-    </RelativeLayout>
-
-    <RelativeLayout
         android:id="@+id/_2"
-        android:layout_below="@id/_1"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -51,26 +16,41 @@
         android:id="@+id/TO"
         android:layout_marginTop="60dp"
         android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:layout_centerInParent="true">
 
         <TextView
             android:id="@+id/too"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="To:          "
+            android:text="To:           "
             android:layout_marginRight="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true"
             android:textSize="20sp">
         </TextView>
         <Spinner
+            android:id="@+id/coin_spin"
             android:layout_toEndOf="@id/too"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
+            android:layout_centerVertical="true"
             android:layout_height="30dp"
             android:background="@drawable/border2"
             android:paddingLeft="5dp">
 
         </Spinner>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/mine_the_coin"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:scaleType="fitCenter"
+            android:layout_toEndOf="@id/coin_spin"
+            app:lottie_fileName="user3.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
 
     </RelativeLayout>
 
@@ -88,8 +68,8 @@
         android:id="@+id/AMOUNT"
         android:layout_marginTop="60dp"
         android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:layout_centerInParent="true">
 
         <TextView
@@ -97,18 +77,33 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:text="Amount:"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="27dp"
             android:textSize="20sp">
         </TextView>
         <EditText
+            android:id="@+id/et_amount"
             android:layout_toEndOf="@id/amt"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:inputType="number"
             android:layout_height="30dp"
+            android:layout_centerVertical="true"
             android:background="@drawable/border2"
             android:paddingLeft="5dp">
 
         </EditText>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/mine_the_coin1"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:scaleType="fitCenter"
+            android:layout_toEndOf="@id/et_amount"
+            app:lottie_fileName="money_stack.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
 
     </RelativeLayout>
 
@@ -125,8 +120,8 @@
         android:id="@+id/MINERFEE"
         android:layout_marginTop="60dp"
         android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:layout_centerInParent="true">
 
         <TextView
@@ -134,24 +129,40 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:text="Miner Fee:"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
             android:textSize="20sp">
         </TextView>
         <EditText
+            android:id="@+id/miner_fee"
             android:layout_toEndOf="@id/miner"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="30dp"
             android:inputType="number"
+            android:layout_centerVertical="true"
             android:background="@drawable/border2"
             android:paddingLeft="5dp">
 
         </EditText>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/mine_the_coin2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:scaleType="fitCenter"
+            android:layout_toEndOf="@id/miner_fee"
+            app:lottie_fileName="exchange.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
 
     </RelativeLayout>
 
     </RelativeLayout>
 
     <Button
+        android:id="@+id/pay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/_4"

@@ -27,6 +27,10 @@ class Block:
         self.last_hash = last_hash
         self.hash = hash
         self.data = data
+        # print('%'*10,type(data),len(data))
+        # if len(data) > 0:
+        #     print('@'*10,type(data[0]))
+        # self.data.extend(data)
         self.difficulty = difficulty
         self.nonce = nonce
 
@@ -37,7 +41,7 @@ class Block:
             f'timestamp: {self.timestamp}, '
             f'last_hash: {self.last_hash}, '
             f'hash: {self.hash}, '
-            f'Block-data: {self.data}, '
+            f'data: {self.data}, '
             f'difficulty: {self.difficulty}, '
             f'nonce: {self.nonce})\n'
         )
@@ -50,6 +54,8 @@ class Block:
 
     @staticmethod
     def from_json(json_block):
+        print('\njson received',json_block)
+        print('\n block created',Block(**json_block))
         return Block(**json_block)
     
     @staticmethod
@@ -59,7 +65,6 @@ class Block:
         difficulty = Block.update_difficulty(last_block,timestamp)
         nonce = 0
         hash = cal_hash(timestamp,last_hash,data, difficulty, nonce)
-
         while hex_to_bin(hash)[0:difficulty] != '0'*difficulty:
             nonce += 1
             timestamp = time.time_ns()
@@ -97,6 +102,8 @@ class Block:
             block.nonce
         )
         if recalculated_hash != block.hash:
+            print(f'\nhash not match {recalculated_hash} != {block.hash}')
+            print(block)
             raise Exception('The block hash is not correct')
 
 def main():

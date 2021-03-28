@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+
+<div class="content-section">
+    <h1>Blockchain</h1> <a href="#" data-toggle="popover" data-placement="top" title="Blockchain" data-trigger="hover" data-content="Blockchain.com is a cryptocurrency blockchain explorer service, as well as a cryptocurrency wallet and a cryptocurrency exchange supporting Bitcoin, Bitcoin Cash, and Ethereum. They also provide Bitcoin data charts, stats, and market information."><i class="fas fa-question-circle"></i></a>
+    {% for i in range(chain| length) %}
+        <div class="card mb-3">
+        <div class="card-header"><b>Block#{{ i+1 }}</b> <a href="#" data-toggle="popover" data-placement="top" title="Block" data-trigger="hover" data-content="The block in block-chain can be considered as a set of verified transactions. These blocks contain a few fields which distinguish one block from another. A block contains block number which is a unique number assigned to every block the block chain. The Previous Hash field contains the cryptographic hash of the block previous to current block in the block chain. Data which simply means the transactions which have been mined. Hash is the cryptographic hash of the transactions present in the block. This hash is computed using Cryptographich algorithm (like SHA-1) and making use of sender's private key. The Nonce is a random whole number, which needs to guessed or computed using brute force, so that it becomes a valid number to be used for hashing the value of block."><i class="fas fa-question-circle"></i></a></div>
+          <div class="card-body">
+            <h5 class="card-title">Block Details</h5>
+            <h6 >Last Hash: {{chain[i].last_hash}}</h6>
+            <h6>Hash: {{chain[i].hash}}</h6>
+            <h6>Difficulty: {{chain[i].difficulty}}</h6>
+            <h6>Nonce: {{chain[i].nonce}}</h6>
+            <h6>Data:</h6>
+            <div class="card" style="width: 100%;">
+                {% for t in range(chain[i].data| length) %}
+                    <div class="card-header"><b>Transaction#{{t+1}}</b> <a href="#" data-toggle="popover" data-placement="top" title="Transaction" data-trigger="hover" data-content=""><i class="fas fa-question-circle"></i></a></div>
+                    <ul class="list-group list-group-flush">
+                
+                        <li class="list-group-item">Sender: {{chain[i].data[t].sender}}</li>
+                        <li class="list-group-item">Receiver: {{chain[i].data[t].receiver}}</li>
+                        <li class="list-group-item">Amount: {{chain[i].data[t].amt}} QCOIN</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="card-footer text-muted">
+                Footer
+              </div>
+          </div>
+        </div>
+        <br>
+        <br>
+    {% endfor %}
+    <!-- <img src="static/link.jpg"> -->
+</div>
+<!--
+<div class="content-section">
+    <div class="container-fluid">
+        <h1>Block Chain</h1>
+        <div class="row flex-row flex-nowrap">
+            <div class="col-md-3 rounded-3 my-5 shadow shadow-lg rounded p-0 mx-3">
+                <div class="bg-color-primary p-3">
+                    <p class="text-center fs-3 fw-bold text-color-white m-0 p-0">Block No: #1</p>
+                    <p class="text-center text-color-white m-0 p-0">(27th March 12:49:00)</p>
+                </div>
+
+
+                <div class="bg-color-dark p-3 text-color-white">
+                    <p class="mb-0 fw-bold"></p>
+                    <p class="rounded-3 mb-2 px-1 bg-color-white text-color-black">3dpx-1uig873y7847gf7y783t</p>
+                    <p class="mb-0 fw-bold">Data:</p>
+                    <p class="rounded-3 mb-2 px-1 bg-color-white text-color-black p-textarea">Transaction data and stuff</p>
+                    <p class="mb-0 fw-bold">Hash:</p>
+                    <p class="rounded-3 mb-2 px-1 bg-color-white text-color-black">3duig873y7847gf7y783t</p>
+                    <p class="mb-0 fw-bold">Nonce:</p>
+                    <p class="rounded-3 mb-2 px-1 bg-color-white text-color-black">15454</p>
+                </div>
+            </div>
+
+            <div class="col-1 my-5 test">
+                <i class="fas fa-chevron-right fa-8x"></i>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+ -->
+{% endblock content %}

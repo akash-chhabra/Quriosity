@@ -5,9 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/imgv"
+        android:src="@drawable/pay">
+
+    </ImageView>
+
     <RelativeLayout
         android:id="@+id/TO"
         android:layout_marginTop="30dp"
+        android:layout_below="@id/imgv"
         android:layout_marginBottom="30dp"
         android:orientation="vertical"
         android:layout_width="wrap_content"
@@ -102,7 +113,7 @@
         android:layout_below="@id/MINERFEE"
         android:layout_centerHorizontal="true">
         <Button
-            android:id="@+id/pop_next_id"
+            android:id="@+id/pop_back_pay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Back"

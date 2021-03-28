@@ -4,7 +4,9 @@ from pubnub.pubnub import PubNub
 from pubnub.pnconfiguration import PNConfiguration
 from pubnub.callbacks import SubscribeCallback
 
+from blockchain import Blockchain
 from block import Block
+
 
 pnconfig = PNConfiguration()
 pnconfig.subscribe_key = 'sub-c-8a7e998e-8e6c-11eb-968e-467c259650fa'
@@ -14,7 +16,8 @@ pnconfig.publish_key = 'pub-c-186ab70f-5ad2-418c-a8da-463879b95f3a'
 
 CHANNELS = {
     'TEST':'TEST',
-    'BLOCK':'BLOCK'
+    'BLOCK':'BLOCK',
+    'PENDING_TRANSACTION':'PENDING_TRANSACTION'
 }
 
 
@@ -34,6 +37,9 @@ class Listener(SubscribeCallback):
             except Exception as e:
                 print(f'\n Cannot replace chain: {e}')
 
+        elif message_object.channel == CHANNELS['PENDING_TRANSACTION']:
+            self.blockchain.pending_transaction = Blockchain.pending_from_json(message_object.message)
+
 
 class PubSub():
     def __init__(self,blockchain):
@@ -47,6 +53,11 @@ class PubSub():
 
     def broadcast_block(self,block):
         self.publish(CHANNELS['BLOCK'],block.to_json())
+
+    def broadcast_pending_transaction(self,blockchain):
+        pending_transaction = blockchain.pending_transaction
+        pending_transaction = list(map(lambda transaction: transaction.to_json(),pending_transaction))
+        self.publish(CHANNELS['PENDING_TRANSACTION'],pending_transaction)
 
 
 def main():

@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Pending Transaction</h1> <a href="#" data-toggle="popover" data-placement="top" title="Pending Transaction" data-trigger="hover" data-content="When a user creates a transaction it is added to the pending transaction pool, When the miner mines a block transaction from pending transactions are added to the mined block"><i class="fas fa-question-circle"></i></a>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Sender</th>
+            <th scope="col">Receiver</th>
+            <th scope="col">Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+            {%for i in range(pending| length )%}
+                <tr>
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{pending[i].sender}}</td>
+                    <td>{{pending[i].receiver}}</td>
+                    <td>{{pending[i].amt}} QCOIN</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    
+    
+
+
+{% endblock content %}

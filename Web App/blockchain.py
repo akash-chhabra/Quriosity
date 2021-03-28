@@ -1,8 +1,11 @@
 from block import Block
+from transaction import Transaction
+from cal_balance import cal_balance
 
 class Blockchain:
     def __init__(self):
         self.chain = [Block.genesis()]
+        self.pending_transaction = []
 
     def addBlock(self,data):
         self.chain.append(Block.mine_block(self.chain[-1],data))
@@ -26,11 +29,24 @@ class Blockchain:
             serialized_chain.append(block.to_json())
         return serialized_chain
 
+    def pending_to_json(self):
+        serialized_chain = []
+        for transaction in self.pending_transaction:
+            serialized_chain.append(transaction.to_json())
+        return serialized_chain
+
     @staticmethod
     def from_json(json_chain):
         blockchain = Blockchain()
         blockchain.chain = list(map(lambda json_block: Block.from_json(json_block), json_chain))
         return blockchain
+
+
+    @staticmethod
+    def pending_from_json(json_chain):
+        blockchain = Blockchain()
+        blockchain.pending_transaction = list(map(lambda json_transaction: Transaction.from_json(json_transaction), json_chain))
+        return blockchain.pending_transaction
 
     @staticmethod
     def is_valid_chain(chain):
@@ -42,16 +58,23 @@ class Blockchain:
             Block.is_valid_block(last_block,block)
 
 def main():
+    
     b = Blockchain()
-    for i in range(3):
-        b.addBlock(i)
-    print(b)
-    b1 = Blockchain()
-    for i in range(4):
-        b1.addBlock(i)
-    print(b1)
+    # for i in range(3):
+    #     t = Transaction(f'from{i}',f'to{i}',i)
+    #     b.addBlock(t.to_json())
+    # print(b.chain)
 
-    b.replace_chain(b1.chain)
+    # print('\nbalance ',cal_balance('to1',b))
+    # for i in range(3):
+    #     b.addBlock(i)
+    # print(b)
+    # b1 = Blockchain()
+    # for i in range(4):
+    #     b1.addBlock(i)
+    # print(b1)
+
+    # b.replace_chain(b1.chain)
 
 if __name__ == "__main__":
     main()

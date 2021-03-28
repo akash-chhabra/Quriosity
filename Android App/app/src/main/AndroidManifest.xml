@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Send_Coins"></activity>
+        <activity android:name=".coins"></activity>
+        <activity android:name=".Send_Coins" />
         <activity android:name=".Display_Ledger" />
         <activity android:name=".MainActivity">
             <intent-filter>

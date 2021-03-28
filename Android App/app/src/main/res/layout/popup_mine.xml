@@ -5,14 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/imgv"
+        android:background="@drawable/circle_border"
+        android:src="@drawable/mine_trolley">
+
+    </ImageView>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="307dp"
-        android:layout_height="150dp"
+        android:layout_height="170dp"
+        android:layout_below="@id/imgv"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
         android:padding="7dp"
-        android:text="Some Intro text about mining"
+        android:text="The term crypto mining means gaining cryptocurrencies by solving cryptographic equations through the use of computers. This process involves validating data blocks and adding transaction records to a public record (ledger) known as a blockchain.\n\nClick on Mine Coins to mine your first block!\n( ͡• . ͡•)"
         android:background="@drawable/border"
         tools:layout_editor_absoluteX="71dp"
         tools:layout_editor_absoluteY="44dp" />
@@ -34,7 +46,7 @@
         android:layout_below="@id/minecoins"
         android:layout_centerHorizontal="true">
     <Button
-        android:id="@+id/pop_next_id"
+        android:id="@+id/pop_back_mine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"

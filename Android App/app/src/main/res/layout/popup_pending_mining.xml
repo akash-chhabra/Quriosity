@@ -5,9 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border"
+        android:id="@+id/imgv"
+        android:src="@drawable/t_pending">
+
+    </ImageView>
+
     <RelativeLayout
         android:id="@+id/FROM"
         android:layout_marginTop="30dp"
+        android:layout_below="@id/imgv"
         android:layout_marginBottom="50dp"
         android:orientation="vertical"
         android:layout_width="wrap_content"
@@ -36,7 +48,7 @@
     <Button
         android:id="@+id/mining"
         android:layout_width="wrap_content"
-        android:text="Mine The Transaction!"
+        android:text="Mine Transaction!"
         android:layout_height="wrap_content"
         android:layout_below="@id/FROM"
         android:layout_centerHorizontal="true"

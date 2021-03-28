@@ -5,14 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/imgv"
+        android:background="@drawable/circle_border"
+        android:src="@drawable/start_coin">
+
+    </ImageView>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="307dp"
-        android:layout_height="278dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgv"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
         android:padding="7dp"
-        android:text="Some Intro text about cryptocurrency"
+        android:text="A cryptocurrency is a type of currency which uses digital files as money. Usually, the files are created using the same methods as cryptography (the science of hiding information). Digital signatures can be used to keep the transactions secure, and let other people check that the transactions are real.The first cryptocurrencies were made to be independent of government-issued currencies.\n\nToo much to read ( ͡❛ ︵ ͡❛)...
+        \ni know, lets go see and understand how does it work!"
         android:background="@drawable/border"
         tools:layout_editor_absoluteX="71dp"
         tools:layout_editor_absoluteY="44dp" />

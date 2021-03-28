@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='main.css')}}">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <title>Quriosity Coin</title>
+</head>
+<body>
+
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{{ url_for('route_blockchain') }}">Quriosity Coin</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="{{ url_for('route_transaction') }}">Transaction</a>
+              <a class="nav-item nav-link" href="{{ url_for('route_pending_transaction') }}">Pending Transaction</a>
+            </div>
+            <!-- Navbar Right Side -->
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div id="flash_msg" class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category,message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>{{user[0]}}</h3>
+            <p class='text-muted'>You can put any information here you'd like.
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Balance</li>
+                <li class="list-group-item list-group-item-light">{{user[1]}}</li>
+                <br><br>
+                <form method="POST" action="">
+                  {{ form.hidden_tag() }}
+                  <div class="form-group">
+                    {{form.submit(class="btn btn-outline-info")}} <a href="#" data-toggle="popover" data-placement="top" title="Mining" data-trigger="hover" data-content="Miners are like Finance Auditors, they are responsible for verifying the legitimacy of transactions. They do so by computing mathematically problems and the solution to this problem is called Nonce (Number only used Once). The Nonce is a random whole number, which needs to guessed or computed using brute force, so that it becomes a valid number to be used for hashing the value of block. The first miner to verify a block is rewarded in cryptocurrency for spending his computational resources. Once mined that block is then added to the blockchain."><i class="fas fa-question-circle"></i></a>
+                  </div>
+                </form>
+
+
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      $(document).ready(function(){
+      $('[data-toggle="popover"]').popover();
+      });
+    </script>
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     -->
+
+
+    
+    <!-- <script type="text/javascript">window.setTimeOut("document.getElementById('flash_msg').style.display='none';",5000); </script> -->
+    <!-- <script type="text/javascript">
+      $("document").ready(function() {
+        setTimeOut(function() {
+          $('#flash_msg').hide('blind');
+        }, 2000);
+      });
+    </script> -->
+</body>
+</html>
